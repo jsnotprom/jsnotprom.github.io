@@ -1,63 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activity 4 - iPhone 12 Features</title>
-    <link rel="stylesheet" href="activity4styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.05);
+        }
+
+        .background-video {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        
-        <div class="main-card">
-            <img src="Images/iphone12.png" alt="iPhone 12">
+    <div class="container p-5 py-5">
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card">
+                    <img src="Images/iphone12.png" alt="iPhone 12">
+                </div>
+            </div>
         </div>
 
-        <div class="card" data-text="The iPhone 12 comes in Black, White, Product Red, Green, Blue, and Purple finish.">
-            <img src="Images/new colors.png" alt="New Colors">
-        </div>
-        <div class="card" data-text="With the iPhone 12, Apple embraced 5G technology, enabling faster download speeds, lower latency, and improved streaming quality">
-            <img src="Images/5G.png" alt="5G">
-        </div>
-        <div class="card" data-text="The iPhone 12 comes in two new sizes: the 5.4 inches iPhone 12 Mini and 6.1 inches iPhone 12.">
-            <img src="Images/two new.png" alt="Two new sizes">
-        </div>
-        <div class="card" data-text="The iPhone 12 features the Ceramic Shield which is 4x tougher than other glasses. Made with ceramic nano-crystals, it is extra resilient and said to withstand drops of over 6 feet with ease. ">
-            <img src="Images/ceramic shield.png" alt="Ceramic Shield">
-        </div>
-        <div class="card" data-text="The Super Retina XDR display on the iPhone 12 boasts a stunning resolution of 2532 x 1170 pixels, delivering vibrant colors, deep blacks, and incredible contrast.">
-            <img src="Images/xdr.png" alt="Super Retina XDR">
-        </div>
-        <div class="card" data-text="The iPhone 12 features a dual-camera system with a 12MP ultra-wide and a 12MP wide lens, enabling users to capture stunning photos and videos. The enhanced Night mode technology improve low-light performance and dynamic range.">
-            <img src="Images/dual camera system.png" alt="Dual-camera system">
-        </div>
-        <div class="card" data-text="The iPhone 12 can withstand immersion in up to 6 meters of water for 30 minutes. This durability makes it suitable for outdoor activities and provides peace of mind against accidental spills and splashes.">
-            <img src="Images/water and dust.png" alt="Water and dust resistant">
-        </div>
-        <div class="card" data-text="With the ability to record 4K video at 60 frames per second, the iPhone 12 delivers cinematic-quality video capture. This feature allows users to create smooth, high-resolution videos with stunning detail.">
-            <img src="Images/4k.png" alt="4K 60fps recording">
-        </div>
-        <div class="card" data-text="MagSafe technology in the iPhone 12 enhances wireless charging and accessory compatibility. It features a series of magnets that align perfectly with MagSafe chargers and accessories.">
-            <img src="Images/magsafe.png" alt="MagSafe">
-        </div>
-        <div class="card" data-text="The iPhone 12 provides impressive battery life, lasting up to 17 hours of talk time or up to 11 hours of internet use.">
-            <img src="Images/battery.png" alt="Great battery life">
-        </div>
-        <div class="card" data-text="Smart HDR 3 utilizes advanced machine learning to improve photo quality by enhancing details in highlights and shadows. This feature intelligently analyzes scenes and adjusts the exposure and color balance.">
-            <img src="Images/hdr.png" alt="Smart HDR 3">
-        </div>
-        <div class="card" data-text="Face ID is Apple’s advanced facial recognition technology, allowing users to unlock their iPhone 12 securely and conveniently with just a glance. This feature uses a TrueDepth camera system to accurately map and recognize a user’s face, .">
-            <img src="Images/face id.png" alt="Face ID">
+        <div class="row g-4">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/new colors.png" alt="New Colors">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/5G.png" alt="5G">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/two new.png" alt="Two new sizes">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/ceramic shield.png" alt="Ceramic Shield">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/xdr.png" alt="Super Retina XDR">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/dual camera system.png" alt="Dual-camera system">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/water and dust.png" alt="Water and dust resistant">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/4k.png" alt="4K 60fps recording">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/magsafe.png" alt="MagSafe">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/battery.png" alt="Great battery life">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/hdr.png" alt="Smart HDR 3">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="Images/face id.png" alt="Face ID">
+                </div>
+            </div>
         </div>
 
-        <div class="createdby">
-            Created by John Stephen Galarrita, BSIT 3-1.
+
+        <div class="text-center mt-4">
+            <p>Created by John Stephen Galarrita, BSIT 3-1.</p>
         </div>
-        
+
         <video autoplay loop muted class="background-video">
             <source src="Images/white bgg.mp4" type="video/mp4">
         </video>
-
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

@@ -1,74 +1,292 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Personal Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JSG Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a2e;
+            color: #fff;
+        }
+
+        .greeting {
+            font-size: 1.2rem;
+            margin: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin: 20px;
+        }
+
+        .description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-right: 100px;
+            margin-left: 100px;
+            
+        }
+
+        .projects h2 {
+            font-size: 2.2rem;
+
+        }
+
+        .project-description {
+            font-size: 1rem;
+        }
+
+        .project-frame {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-frame:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .experience-card img {
+            margin-bottom: 15px;
+            filter: brightness(1);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .experience-card img:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        .experience-card h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="#"><img src="Activity4/Images/JSG WEBPAGE LOGO.png" alt="Logo"></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">
+                <img src="Activity5Final/Act5Images/JSG WEBPAGE LOGO BLACK.png" alt="Logo" style="height: 40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/index.html">My Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Skills & Experience</a></li>
+                </ul>
             </div>
-          
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="content">
-            <p class="greeting">Welcome to my portfolio!</p>
-            <h2>I’m John Stephen Galarrita</h2>
-            <p class="description">A 3rd year student studying Bachelor of Science in Information Technology at the Polytechnic University of the Philippines.</p>
-            <p class="description">I'm an aspiring software engineer and designer with a passion for creating innovative digital solutions. I’m driven by a love for technology and design, constantly learning and developing new skills to bring my ideas to life. Explore my portfolio as I build and design for the future.</p>
-            <a href="#myprojects" class="button">My Projects</a>
         </div>
-        <div class="image">
-            <img src="Activity4/Images/ID Picture.png" alt="John Stephen Galarrita">
+    </nav>
+
+    <section class="hero py-5">
+        <div class="container d-flex flex-column flex-lg-row align-items-center"></div>
+        <div class="content text-center text-lg-start">
+
+            <div class="d-flex justify-content-center align-items-center mt-4 mt-lg-0">
+                <div class="image ms-lg-4">
+                    <img src="Activity4/Images/ID Picture.png" class="img-fluid rounded" style="width: 300px;">
+                </div>
+            </div>
+            <p class="greeting text-center">Welcome to my Portfolio</p>
+            <h2 class="fw-bold text-center">I'm John Stephen Galarrita,</h2>
+            <p class="description text-center">
+                A 3rd year student studying Bachelor of Science in Information Technology at the Polytechnic University
+                of the Philippines,
+                and an aspiring software engineer and designer with a passion for creating innovative digital solutions.
+                Explore my portfolio as I build and design for the future.
+            </p>
+            <div class="text-center mb-4">
+                <a href="#myprojects" class="btn btn-warning btn-lg ali m-1">My Projects</a>
+                <a href="#experience" class="btn btn-warning btn-lg ali m-1">Industry Skills</a>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+
+    <section id="experience" class="py-5 bg-secondary text-white">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5">Industry Skills</h2>
+            <div class="row g-4 text-center">
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark ">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">C++</h5>
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">Python</h5>
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">Java</h5>
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">SQL</h5>
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">HTML</h5>
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">CSS</h5>
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">PHP</h5>
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">JavaScript</h5>
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">Bootstrap</h5>
+                    </div>
+                </div>
+
+                
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">After Effects</h5>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">Photoshop</h5>
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="experience-card p-3 rounded bg-dark mb-5">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
+                            class="img-fluid" style="height: 80px;">
+                        <h5 class="mt-3">Figma</h5>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    
-    <br>
-    <br>
-    <br>
-    <br>
+    <section id="myprojects" class="projects py-5 bg-dark text-white">
+        <div class="container text-center">
+            <h2 class="fw-bold">Academic Projects</h2>
+            <p class="project-description mb-5">
+                Explore a collection of my academic projects showcasing my skill and experience in web development,
+                design, and problem-solving.
+            </p>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <a href="Activity4/activity4.html" class="project-link text-decoration-none">
+                        <div class="project-frame p-4 bg-secondary text-white rounded">
+                            <h3>Activity 4</h3>
+                            <p>I created a one-page HTML showcasing the specifications and features of the iPhone 12
+                                smartphone.</p>
+                        </div>
+                    </a>
+                </div>
 
-  
+                <div class="col-12 col-md-6 col-lg-3">
+                    <a href="Activity5Final/act5.html" class="project-link text-decoration-none">
+                        <div class="project-frame p-4 bg-secondary text-white rounded">
+                            <h3>Activity 5</h3>
+                            <p>I created a responsive website showcasing the country of USA and it's locations using bootstrap classes.</p>
+                        </div>
+                    </a>
+                </div>
 
-    <section id="myprojects" class="projects">
-        <h2>My Projects</h2>
-        <p class="project-description">
-            Explore a collection of my academic projects showcasing my skill and experience in web development, design, and problem-solving.
-        </p>
-    
-        <div class="project-card">
-            <a href="Activity4/activity4.html" class="project-link">
-                <div class="project-frame">
-                    <h3>Activity 4</h3>
-                    <p>I created a one-page HTML showcasing the specifications and features of the iPhone 12 smartphone.</p>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <a href="Activity6/index.html" class="project-link text-decoration-none">
+                        <div class="project-frame p-4 bg-secondary text-white rounded">
+                            <h3>Activity 6</h3>
+                            <p>I created a gallery of game characters using Javascript Loop and other features such as
+                                Dark Mode.</p>
+                        </div>
+                    </a>
                 </div>
-            </a>
-            <a href="Activity5Final/act5.html" class="project-link">
-                <div class="project-frame">
-                    <h3>Activity 5</h3>
-                    <p>I created a responsive website showcasing the country of USA using bootstrap classes.</p>
+
+                <div class="col-12 col-md-6 col-lg-3 mb-5">
+                    <a href="Activity7/index.html" class="project-link text-decoration-none">
+                        <div class="project-frame p-4 bg-secondary text-white rounded">
+                            <h3>Activity 7</h3>
+                            <p>I created a gallery that utilizes a Valorant-API with JSON return that has a view.html
+                                that uses urlParameters.</p>
+                        </div>
+                    </a>
                 </div>
-            </a>
-             <a href="Activity6/index.html" class="project-link">
-                <div class="project-frame">
-                    <h3>Activity 6</h3>
-                    <p>I created a gallery of game characters using Javascript Loop and other features such as Dark Mode.</p>
-                </div>
-            </a>
-            <a href="Activity7/index.html" class="project-link">
-                <div class="project-frame">
-                    <h3>Activity 7</h3>
-                    <p>I created a gallery that utilizes a Valorant-API with JSON return that has a view.html that uses urlParameters</p>
-                </div>
-            </a>
+            </div>
         </div>
     </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
