@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valorant Tier List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .tier-row {
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .tier-label {
+            min-width: 60px;
+            font-weight: bold;
+            font-size: 2rem;
+            margin-left: 30px;
+              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .agent-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: #1e1e1e;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #0f1821;
+
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-white">
+
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Valorant Tier List</h1>
+
+        <div id="tier-list">
+           
+        </div>
+    </div>
+
+    <script>
+        const tierData = {
+            "S+": ["Clove", "Raze"],
+            "S": ["Omen", "Sova", "Cypher", "Yoru", "Breach", "Phoenix", "Iso"],
+            "A": ["Fade", "Killjoy", "Skye", "Sage"],
+            "B": ["Neon", "Deadlock", "Harbor", "Brimstone", "KAY/O", "Chamber"],
+            "C": ["Astra", "Gekko", "Reyna", "Viper"],
+            "D": ["Jett", "Phoenix", "KAY/O"]
+        };
+
+        const tierColors = {
+            "S+": "#efb0ff",
+            "S": "#ffb6b6",
+            "A": "#ffd59e",
+            "B": "#ffe89e",
+            "C": "#f9ffa3",
+            "D": "#d3d3d3"
+        };
+
+        async function fetchAgents() {
+            const res = await fetch("https://valorant-api.com/v1/agents?isPlayableCharacter=true");
+            const data = await res.json();
+            return data.data.reduce((acc, agent) => {
+                acc[agent.displayName.toLowerCase()] = agent.displayIcon;
+                return acc;
+            }, {});
+        }
+
+        async function renderTierList() {
+            const agentIcons = await fetchAgents();
+            const tierListContainer = document.getElementById("tier-list");
+
+            for (const tier in tierData) {
+                const tierRow = document.createElement("div");
+                tierRow.className = "tier-row";
+                tierRow.style.backgroundColor = tierColors[tier];
+
+                const label = document.createElement("div");
+                label.className = "tier-label me-3";
+                label.textContent = tier;
+                tierRow.appendChild(label);
+
+                tierData[tier].forEach(agentName => {
+                    const img = document.createElement("img");
+                    const key = agentName.toLowerCase();
+                    img.src = agentIcons[key] || "";
+                    img.alt = agentName;
+                    img.className = "agent-img";
+                    tierRow.appendChild(img);
+                });
+
+                tierListContainer.appendChild(tierRow);
+            }
+        }
+
+        renderTierList();
+    </script>
+
+</body>
+
+</html>
