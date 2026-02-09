@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Babi, will you be my valentine?</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            /* Removes the typing indicator/text selection cursor */
             user-select: none;
             -webkit-user-select: none;
             cursor: default;
@@ -35,7 +36,6 @@
             z-index: 10;
             width: 100%;
             max-width: 700px;
-            /* Slightly wider to accommodate larger success text */
             padding: 20px;
         }
 
@@ -81,7 +81,6 @@
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            /* Keeps pointer cursor for buttons only */
             font-weight: 600;
             white-space: nowrap;
         }
@@ -109,20 +108,17 @@
             transition: top 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* --- Success Content Specific Sizing --- */
         .success-message {
             display: none;
         }
 
         .success-message h1 {
             font-size: 2rem;
-            /* Bigger text for success */
             margin-top: 10px;
         }
 
         .success-message .gif-container img {
             max-width: 350px;
-            /* Much bigger GIF for the celebration */
         }
 
         .footer {
@@ -185,20 +181,12 @@
 
             if (clickCount >= 5) {
                 const rect = yesBtn.getBoundingClientRect();
-
-                // Move to the exact same position as the Yes button
                 noBtn.style.left = rect.left + 'px';
                 noBtn.style.top = rect.top + 'px';
                 noBtn.style.width = rect.width + 'px';
                 noBtn.style.height = rect.height + 'px';
-
-                // Ensure it goes behind (Yes button has z-index 50)
                 noBtn.style.zIndex = '5';
-
-                // Disable clicking so it doesn't move again
                 noBtn.style.pointerEvents = 'none';
-
-                // REMOVED: noBtn.style.opacity = '0'; (This was the problem!)
                 return;
             }
 
@@ -213,6 +201,42 @@
         function handleYes() {
             document.getElementById('main-content').style.display = 'none';
             document.getElementById('success-content').style.display = 'block';
+            
+            // 2. Trigger the Confetti Effect
+            fireConfetti();
+        }
+
+        function fireConfetti() {
+            const duration = 5 * 1000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            const interval = setInterval(function() {
+                const timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                const particleCount = 50 * (timeLeft / duration);
+                
+                // Burst from left side
+                confetti(Object.assign({}, defaults, { 
+                    particleCount, 
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                    colors: ['#db2777', '#fce7f3', '#ffffff', '#be185d'] // Themed colors
+                }));
+                // Burst from right side
+                confetti(Object.assign({}, defaults, { 
+                    particleCount, 
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                    colors: ['#db2777', '#fce7f3', '#ffffff', '#be185d']
+                }));
+            }, 250);
         }
     </script>
 </body>
